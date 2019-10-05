@@ -1,0 +1,84 @@
+{
+  "common": {
+    "name": "mcp3xxx-analog",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
+    },
+    "title": "mcp3xxx-analog",
+    "titleLang": {
+      "en": "mcp3xxx-analog",
+      "de": "mcp3xxx-analog",
+      "ru": "mcp3xxx-аналоговый",
+      "pt": "mcp3xxx-analog",
+      "nl": "mcp3xxx-analogon",
+      "fr": "mcp3xxx-analogique",
+      "it": "mcp3xxx analogico",
+      "es": "mcp3xxx-analog",
+      "pl": "mcp3xxx-analog",
+      "zh-cn": "mcp3xxx模拟"
+    },
+    "desc": {
+      "en": "mcp3xxx-analog",
+      "de": "mcp3xxx-analog",
+      "ru": "mcp3xxx-аналоговый",
+      "pt": "mcp3xxx-analog",
+      "nl": "mcp3xxx-analogon",
+      "fr": "mcp3xxx-analogique",
+      "it": "mcp3xxx analogico",
+      "es": "mcp3xxx-analog",
+      "pl": "mcp3xxx-analog",
+      "zh-cn": "mcp3xxx模拟"
+    },
+    "authors": [
+      "raspilc <info@raspilc.de>"
+    ],
+    "keywords": [
+      "mcp3002",
+      "mcp3004",
+      "mcp3008",
+      "mcp3202",
+      "mcp3204",
+      "mcp3208",
+      "analog",
+      "spi"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "mcp3xxx-analog.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/raspilc/ioBroker.mcp3xxx-analog/master/admin/mcp3xxx-analog.png",
+    "readme": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "hardware",
+    "compact": true,
+    "materialize": true,
+    "dependencies": [
+      {
+        "js-controller": ">=1.4.2"
+      }
+    ],
+    "installedFrom": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc"
+  },
+  "native": {
+    "Interval": "500",
+    "SelectIC": "MCP3002",
+    "Bus": "0",
+    "device": "0"
+  },
+  "objects": [],
+  "instanceObjects": []
+}

@@ -1,0 +1,86 @@
+{
+  "_from": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc",
+  "_id": "iobroker.mcp3xxx-analog@0.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-w4rwkV4xHL19kTLLAQbPwi5s+gyysd5AYTglR+ASRdrPLiyuVBS9iyCSFv9HEeFK4A/8a1aTVpz6AZka+hPxDg==",
+  "_location": "/iobroker.mcp3xxx-analog",
+  "_phantomChildren": {
+    "file-uri-to-path": "1.0.0"
+  },
+  "_requested": {
+    "type": "remote",
+    "raw": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc",
+    "rawSpec": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc",
+    "saveSpec": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc",
+    "fetchSpec": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc",
+  "_shasum": "7248985576385e054e987e4e6abd232728e0edcb",
+  "_spec": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc",
+  "_where": "/",
+  "author": {
+    "name": "raspilc",
+    "email": "info@raspilc.de"
+  },
+  "bugs": {
+    "url": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@iobroker/adapter-core": "^1.0.3",
+    "spi-device": "^3.0.0"
+  },
+  "deprecated": false,
+  "description": "mcp3xxx-analog",
+  "devDependencies": {
+    "@iobroker/testing": "^1.2.5",
+    "@types/chai": "^4.2.3",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/gulp": "^4.0.6",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.14.18",
+    "@types/proxyquire": "^1.3.28",
+    "@types/sinon": "^7.0.13",
+    "@types/sinon-chai": "^3.2.3",
+    "axios": "^0.19.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^6.4.0",
+    "gulp": "^4.0.2",
+    "mocha": "^6.2.0",
+    "proxyquire": "^2.1.3",
+    "sinon": "^7.4.2",
+    "sinon-chai": "^3.3.0"
+  },
+  "homepage": "https://github.com/raspilc/ioBroker.mcp3xxx-analog",
+  "keywords": [
+    "mcp3002",
+    "mcp3004",
+    "mcp3008",
+    "mcp3202",
+    "mcp3204",
+    "mcp3208",
+    "analog",
+    "spi"
+  ],
+  "license": "MIT",
+  "main": "main.js",
+  "name": "iobroker.mcp3xxx-analog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raspilc/ioBroker.mcp3xxx-analog.git"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "test": "npm run test:js && npm run test:package",
+    "test:integration": "mocha test/integration --exit",
+    "test:js": "mocha --opts test/mocha.custom.opts",
+    "test:package": "mocha test/package --exit",
+    "test:unit": "mocha test/unit --exit"
+  },
+  "version": "0.0.1"
+}

@@ -31,7 +31,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "@iobroker/adapter-core": "^2.0.0",
+    "@iobroker/adapter-core": "^2.4.0",
     "spi-device": "^3.0.0"
   },
   "deprecated": false,

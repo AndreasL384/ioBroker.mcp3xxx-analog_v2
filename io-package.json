@@ -68,7 +68,7 @@
     "materialize": true,
     "dependencies": [
       {
-        "js-controller": ">=1.4.2"
+        "js-controller": ">=2.0.0"
       }
     ],
     "installedFrom": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/tarball/339458418f745826ca8c93fd99e3853badc202bc"

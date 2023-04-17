@@ -107,7 +107,7 @@ if (module.parent) {
 }
 
 function readanalog(self, busNum, devNum, channels, readtime, resolution) {
-  self.log.info("Start reading analog values at bus " + busNum + " device " + devNum + " on " + channels + " channels @ " + readtime + " ms interval");
+  self.log.info("Start reading analog values at bus " + busNum + " device " + devNum + " on " + channels + " channels @ " + readtime + " ms interval" + " with resolution " + resolution);
 
   const mcp = require('spi-device');
   try{

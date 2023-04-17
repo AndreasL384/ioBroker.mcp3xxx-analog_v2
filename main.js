@@ -117,8 +117,8 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
     for (i = 0; i < channels; i++) {
       (function(i) {
         setInterval(() => {
-          
-          if (resolution == 2) {
+
+          /*if (resolution == 2) {
 
             const message = [{
 
@@ -127,7 +127,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               byteLength: 3,
               speedHz: 20000              
             }];
-          } else {
+          } else { */
             const message = [{
 
               sendBuffer: Buffer.from([0x01, ((0x08 + i) << 4), 0x00]), // Sent to read
@@ -135,7 +135,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               byteLength: 3,
               speedHz: 20000
             }];
-          };
+   /*        }; */
           if (err) throw err;
           
           mcp3204.transfer(message, (err, message) => {

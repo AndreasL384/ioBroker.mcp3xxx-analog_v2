@@ -113,7 +113,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
   try{
   const mcp3204 = mcp.open(busNum, devNum, (err) => {
 
-    var i;
+    var i; var cmd;
     for (i = 0; i < channels; i++) {
       (function(i) {
         setInterval(() => {

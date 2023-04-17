@@ -122,11 +122,11 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
             if (channels == 2) {
               cmd = [0x01, ((0x05 + 2 * i) << 5), 0x00]; // MCP3202
             } else {
-                cmd = [0x05 + i[2] * 2, ((0x00 + i) << 6), 0x00]; // MCP3204/3208          
+              cmd = [0x05 + i[2] * 2, ((0x00 + i) << 6), 0x00]; // MCP3204/3208          
             };
           } else { 
             if (channels == 2) {
-              cmd = [((0x0D + 2 * i) << 3), 0x00]; // MCP3002
+              cmd = [((0x0d + 2 * i) << 3), 0x00]; // MCP3002
             } else {
               cmd = [0x01, ((0x08 + i) << 4), 0x00]; // MCP3004/3008
             };
@@ -148,9 +148,9 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               self.log.warn("Error reading analog values");
             } else {
               if (resolution == 0) {
-                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x00) << 8) + message[0].receiveBuffer[2]), true);
+                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x03) << 8) + message[0].receiveBuffer[2]), true);
               } else if (resolution == 2) {
-                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x00) << 8) + message[0].receiveBuffer[2]), true);
+                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x0f) << 8) + message[0].receiveBuffer[2]), true);
               };
             };
           });

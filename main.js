@@ -107,7 +107,7 @@ if (module.parent) {
 }
 
 function readanalog(self, busNum, devNum, channels, readtime, resolution) {
-  self.log.info("Start reading analog values at bus " + busNum + " device " + devNum + " on " + channels + " channels @ " + readtime + " ms interval" + " with resolution " + resolution);
+  self.log.info("Start reading analog values at bus " + busNum + " device " + devNum + " on " + channels + " channels @ " + readtime + " ms interval" + " with resolution 1" + resolution + " Bit");
 
   const mcp = require('spi-device');
   try{
@@ -117,18 +117,16 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
     for (i = 0; i < channels; i++) {
       (function(i) {
         setInterval(() => {
-          if (resolution == 0) {
+          if (resolution == 2) {
             const message = [{
-
-              sendBuffer: Buffer.from([0x01, ((0x08 + i) << 4), 0x00]), // Sent to read
+              sendBuffer: Buffer.from([0x04, ((0x00 + i) << 6), 0x00]), // Sent to read
               receiveBuffer: Buffer.alloc(3), // received raw data
               byteLength: 3,
-              speedHz: 20000
+              speedHz: 20000              
             }];
-          } else if (resolution == 2) {
+          } else {
             const message = [{
-
-              sendBuffer: Buffer.from([0x04, ((0x00 + i) << 6), 0x00]), // Sent to read
+              sendBuffer: Buffer.from([0x01, ((0x08 + i) << 4), 0x00]), // Sent to read
               receiveBuffer: Buffer.alloc(3), // received raw data
               byteLength: 3,
               speedHz: 20000

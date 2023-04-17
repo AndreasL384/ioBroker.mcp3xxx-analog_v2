@@ -118,26 +118,19 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
       (function(i) {
         setInterval(() => {
 
-          /*if (resolution == 2) { 
-
+          if (resolution == 2) { 
+            cmd = [0x04, ((0x00 + i) << 6), 0x00]; // Sent to read           
+          } else { 
+            cmd = [0x01, ((0x08 + i) << 4), 0x00]; // Sent to read
+          };
               const message = [{
 
-                sendBuffer: Buffer.from([0x04, ((0x00 + i) << 6), 0x00]), // Sent to read
-                receiveBuffer: Buffer.alloc(3), // received raw data
-                byteLength: 3,
-                speedHz: 20000              
-              }];
-          /*} else { */
-
-              const message = [{
-
-                sendBuffer: Buffer.from([0x01, ((0x08 + i) << 4), 0x00]), // Sent to read
+                sendBuffer: Buffer.from(cmd), // Sent to read
                 receiveBuffer: Buffer.alloc(3), // received raw data
                 byteLength: 3,
                 speedHz: 20000
               }];
-
-   /*        }; */
+ 
           if (err) throw err;
           
           mcp3204.transfer(message, (err, message) => {

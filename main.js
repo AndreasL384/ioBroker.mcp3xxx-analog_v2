@@ -131,7 +131,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               byteLength: 3,
               speedHz: 20000
             }];
-          }
+          };
           if (err) throw err;
           
           mcp3204.transfer(message, (err, message) => {

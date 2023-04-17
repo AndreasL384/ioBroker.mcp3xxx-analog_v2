@@ -120,9 +120,9 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
 
           if (resolution == 2) { 
             if (channels == 2) {
-              cmd = [0x01, ((0x05 + 2* i) << 5), 0x00]; // MCP3202
+              cmd = [0x01, ((0x05 + 2 * i) << 5), 0x00]; // MCP3202
             } else {
-                cmd = [0x04, ((0x00 + i) << 6), 0x00]; // MCP3204/3208          
+                cmd = [0x05 + i[2] * 2, ((0x00 + i) << 6), 0x00]; // MCP3204/3208          
             };
           } else { 
             if (channels == 2) {
@@ -131,6 +131,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               cmd = [0x01, ((0x08 + i) << 4), 0x00]; // MCP3004/3008
             };
           };
+          self.log.info("ch" + i + " cmd: " + cmd);
           const message = [{
 
             sendBuffer: Buffer.from(cmd), // Sent to read

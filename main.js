@@ -117,8 +117,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
     for (i = 0; i < channels; i++) {
       (function(i) {
         setInterval(() => {
-          switch (resolution) {
-            case 2:
+
           /*if (resolution == 2) { */
 
               const message = [{
@@ -128,9 +127,8 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
                 byteLength: 3,
                 speedHz: 20000              
               }];
-              break;
-          /*} else { */
-            case 0:
+          /*} else { 
+
               const message = [{
 
                 sendBuffer: Buffer.from([0x01, ((0x08 + i) << 4), 0x00]), // Sent to read
@@ -138,8 +136,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
                 byteLength: 3,
                 speedHz: 20000
               }];
-              break;
-            }
+
    /*        }; */
           if (err) throw err;
           

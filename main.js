@@ -118,7 +118,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
       (function(i) {
         setInterval(() => {
 
-          /*if (resolution == 2) { */
+          /*if (resolution == 2) { 
 
               const message = [{
 
@@ -127,7 +127,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
                 byteLength: 3,
                 speedHz: 20000              
               }];
-          /*} else { 
+          /*} else { */
 
               const message = [{
 

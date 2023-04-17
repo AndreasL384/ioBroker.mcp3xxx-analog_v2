@@ -119,17 +119,25 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
         setInterval(() => {
 
           if (resolution == 2) { 
-            cmd = [0x04, ((0x00 + i) << 6), 0x00]; // Sent to read           
+            if (channels == 2) {
+              cmd = [0x01, ((0x05 + 2* i) << 5), 0x00]; // MCP3202
+            } else {
+                cmd = [0x04, ((0x00 + i) << 6), 0x00]; // MCP3204/3208          
+            };
           } else { 
-            cmd = [0x01, ((0x08 + i) << 4), 0x00]; // Sent to read
+            if (channels == 2) {
+              cmd = [((0x0D + 2 * i) << 3), 0x00]; // MCP3002
+            } else {
+              cmd = [0x01, ((0x08 + i) << 4), 0x00]; // MCP3004/3008
+            };
           };
-              const message = [{
+          const message = [{
 
-                sendBuffer: Buffer.from(cmd), // Sent to read
-                receiveBuffer: Buffer.alloc(3), // received raw data
-                byteLength: 3,
-                speedHz: 20000
-              }];
+            sendBuffer: Buffer.from(cmd), // Sent to read
+            receiveBuffer: Buffer.alloc(3), // received raw data
+            byteLength: 3,
+            speedHz: 20000
+          }];
  
           if (err) throw err;
           
@@ -139,9 +147,9 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               self.log.warn("Error reading analog values");
             } else {
               if (resolution == 0) {
-                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x03) << 8) + message[0].receiveBuffer[2]), true);
+                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x00) << 8) + message[0].receiveBuffer[2]), true);
               } else if (resolution == 2) {
-                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x0f) << 8) + message[0].receiveBuffer[2]), true);
+                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x00) << 8) + message[0].receiveBuffer[2]), true);
               };
             };
           });

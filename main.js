@@ -149,7 +149,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
             } else {
               if (resolution == 0) {
                 if (channels == 2) {
-                  self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[0] & 0x03) << 8) + message[0].receiveBuffer[]), true); /* MCP3002 */
+                  self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[0] & 0x03) << 8) + message[0].receiveBuffer[1]), true); /* MCP3002 */
                 } else {
                   self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x03) << 8) + message[0].receiveBuffer[2]), true); /* MCP3004/3008 */
                 };

@@ -27,7 +27,7 @@
     "email": "info@raspilc.de"
   },
   "bugs": {
-    "url": "https://github.com/raspilc/ioBroker.mcp3xxx-analog/issues"
+    "url": "https://github.com/AndreasL384/ioBroker.mcp3xxx-analog_v2/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -72,7 +72,7 @@
   "name": "iobroker.mcp3xxx-analog",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raspilc/ioBroker.mcp3xxx-analog.git"
+    "url": "git+https://github.com/AndreasL384/ioBroker.mcp3xxx-analog_v2.git"
   },
   "scripts": {
     "lint": "eslint",

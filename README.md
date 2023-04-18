@@ -10,12 +10,12 @@
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/raspilc/ioBroker.mcp3xxx-analog/master.svg)](https://travis-ci.org/raspilc/ioBroker.mcp3xxx-analog)
 
-## mcp3xxx-analog adapter for ioBroker
+## mcp3xxx-analog adapter for ioBroker !v2!
 
 This adapter provides support for Microchips MCP3xxx A/D-converter IC's with SPI-Port.
 It works on SBC's that has an SPI-Interface like Raspberry Pi, Tinkerboard or Banana Pi.
 
-Simply wire the IC to your SPI-port, enable SPI in config (raspi-config etc.) and install adapter.
+Simply wire the IC to your SPI-port, enable SPI in config (raspi-config etc.), add user iobroker to spi user group (sudo adduser iobroker spi) and install adapter.
 
 After that in adapters settings select the correct bus, device, the used A/D-converter and the desired interval for reading the values.
 
@@ -25,6 +25,10 @@ Supported A/D-converters : MCP3002, MCP3004, MCP3008 (2,4 or 8 channels, 10bit r
 
 
 ## Changelog
+### 0.0.2
+-> (AndreasL384)
+* mayor overhaul due to non working IC (at least) MCP3004
+* checked all datasheets of selectable ICs and added the correct command messages and calculation of received messages
 
 ### 0.0.1
 * (raspilc) initial release

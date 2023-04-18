@@ -131,7 +131,7 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               cmd = [0x01, ((0x08 + i) << 4), 0x00]; // MCP3004/3008
             };
           };
-          self.log.info("ch" + i + " cmd: " + cmd);
+          /*self.log.info("ch" + i + " cmd: " + cmd);*/
           const message = [{
 
             sendBuffer: Buffer.from(cmd), // Sent to read
@@ -148,9 +148,13 @@ function readanalog(self, busNum, devNum, channels, readtime, resolution) {
               self.log.warn("Error reading analog values");
             } else {
               if (resolution == 0) {
-                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x03) << 8) + message[0].receiveBuffer[2]), true);
+                if (channels == 2) {
+                  self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[0] & 0x03) << 8) + message[0].receiveBuffer[]), true); /* MCP3002 */
+                } else {
+                  self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x03) << 8) + message[0].receiveBuffer[2]), true); /* MCP3004/3008 */
+                };
               } else if (resolution == 2) {
-                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x0f) << 8) + message[0].receiveBuffer[2]), true);
+                self.setStateAsync(('Channel' + i), (((message[0].receiveBuffer[1] & 0x0f) << 8) + message[0].receiveBuffer[2]), true); /* MCP320X */
               };
             };
           });
